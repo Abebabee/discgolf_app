@@ -15,14 +15,14 @@ const NavBar = () => {
         <Modal
           header={"About"}
           text={
-            "Enter a disc you like and get recommendations for discs with similar flight numbers"
+            "Enter a disc mold you like and get recommendations for discs with similar flight numbers"
           }
           onClose={handleCloseModal}
         ></Modal>
       )}
       <div className="bg-primary rounded-full flex flex-row text-center items-center p-2 mt-2 border border-border shadow">
         <p className="text-foreground font-bold">Similar Disc</p>
-        <a href="#" className="ml-2 hover:text-primary/80 p-1" onClick={()=>setIsModalOpen(true)}>
+        <a href="#" className="ml-2 text-foreground p-1" onClick={()=>setIsModalOpen(true)}>
           <BsQuestionCircle size={20} />
         </a>
         <ThemeToggle></ThemeToggle>

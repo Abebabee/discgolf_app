@@ -70,7 +70,6 @@ export default function Home() {
             )}
           </div>
         </div>
-
         <div className="flex flex-col items-center text-foreground">
           <ResultTable discs={discData} selectedDisc={selectedDisc} />
         </div>

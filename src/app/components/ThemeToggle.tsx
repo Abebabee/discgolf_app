@@ -21,7 +21,7 @@ const ThemeToggle = () => {
     }
   }, [darkMode]);
   return (
-    <div className="cursor-pointer rounded-full p-1 self-end"
+    <div className="cursor-pointer rounded-full p-1 self-end text-foreground"
     onClick={()=>setDarkMode(!darkMode)}>
         {darkMode ? 
             <MdLightMode size={20}/>
