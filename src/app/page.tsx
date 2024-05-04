@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { useEffect, useState } from "react";
 import Button from "./components/Button";
 import InputField from "./components/InputField";
@@ -9,13 +9,12 @@ export default function Home() {
   const [discData, setDiscData] = useState<any[]>([]);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
+  const [selectedDisc, setSelectedDisc] = useState("")
   const { fetchCsvData } = readDiscData();
 
   useEffect(() => {
     fetchCsvData("/discdata.csv", setDiscData);
   }, []);
-
-  console.log(discData);
 
   useEffect(() => {
     const discNames = discData
@@ -32,33 +31,49 @@ export default function Home() {
     setInputValue(event.target.value);
   };
 
+  const handleSuggestionClick = (suggestion: string) => {
+    setInputValue(suggestion);
+  };
+  const handleButtonClick = () =>{
+    setSelectedDisc(inputValue);
+    setInputValue("");
+  }
+
   return (
     <main className="bg-background flex flex-row justify-center items-center h-screen">
-      <div className="bg-card flex flex-col justify-center items-center">
+      <div className="bg-card flex flex-col justify-center items-center relative">
         <div className="flex flex-row justify-center items-center text-foreground">
           <p>I would like a disc similar to:</p>
         </div>
-        <div className="flex flex-col justify-center items-center text-foreground">
-          <div className="flex flex-row justify-center items-center text-foreground">
+        <div className="flex flex-row justify-center items-center text-foreground">
+          <div className="relative">
+          <div className="flex flex-row">
             <InputField
               placeholder={"e.g. Firebird"}
               onChange={handleInputChange}
               value={inputValue}
-            ></InputField>
-            <Button name={"Search"} href={""} bg={"bg-primary"}></Button>
-          </div>
-          <div className="relative text-foreground overflow-y-auto max-h-80 w-full border border-border mt-1">
-            {suggestions.map((suggestion, index) => (
-              <div key={index} className="pl-2  hover:bg-primary">
-                {suggestion}
+            />
+            <Button name={"Search"} href={""} bg={"bg-primary"} onClick={handleButtonClick}/>
+            </div>
+            {inputValue && (
+              <div className="absolute top-full left-0 text-foreground overflow-y-auto max-h-80 w-full border border-border mt-1 bg-card">
+                {suggestions.map((suggestion, index) => (
+                  <div
+                    key={index}
+                    className="pl-2 hover:bg-primary cursor-pointer"
+                    onClick={() => handleSuggestionClick(suggestion)}
+                  >
+                    {suggestion}
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
         </div>
 
         <div className="flex flex-col items-center text-foreground">
           <p className="p-4">These discs might be up your alley!</p>
-          <ResultTable discs={discData}></ResultTable>
+          <ResultTable discs={discData} selectedDisc={selectedDisc} />
         </div>
       </div>
     </main>
