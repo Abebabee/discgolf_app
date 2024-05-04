@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Button from "./components/Button";
 import InputField from "./components/InputField";
 import readDiscData from "@/app/hooks/readDiscData";
+import ResultTable from "./components/ResultTable";
 
 export default function Home() {
   const [discData, setDiscData] = useState<any[]>([]);
@@ -17,17 +18,13 @@ export default function Home() {
   console.log(discData);
 
   useEffect(() => {
-    // Extract disc names from disc data
     const discNames = discData
-      .map((disc: any) => disc.MOLD) // Map to disc names without trimming
-      .filter((name: string | null) => name !== null) // Filter out null disc names
-      .map((name: string) => name.trim()); // Trim disc names
-
-    // Filter disc names based on input value
+      .map((disc: any) => disc.MOLD)
+      .filter((name: string | null) => name !== null)
+      .map((name: string) => name.trim());
     const filteredSuggestions = discNames.filter((name: string) =>
       name.toLowerCase().includes(inputValue.toLowerCase())
     );
-    // Set filtered suggestions
     setSuggestions(filteredSuggestions);
   }, [inputValue, discData]);
 
@@ -59,7 +56,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="text-foreground">Results here</div>
+        <div className="flex flex-col items-center text-foreground">
+          <p className="p-4">These discs might be up your alley!</p>
+          <ResultTable discs={discData}></ResultTable>
+        </div>
       </div>
     </main>
   );
