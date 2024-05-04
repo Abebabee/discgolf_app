@@ -9,7 +9,7 @@ interface ModalProps {
 const Modal = ({ header, text, onClose, buttonText}: ModalProps) => {
   return (
     <div
-      className="fixed top-0 left-0 w-full h-full flex justify-center backdrop-blur-sm items-center z-20 text-foreground"
+      className="fixed top-0 left-0 w-full h-full flex justify-center backdrop-blur-sm items-center text-foreground z-20"
       onClick={onClose}
     >
       <div

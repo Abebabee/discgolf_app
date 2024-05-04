@@ -10,7 +10,7 @@ const NavBar = () => {
     setIsModalOpen(false);
   };
   return (
-    <div className="fixed flex justify-center w-full">
+    <div className="fixed flex justify-center w-full z-20">
       {isModalOpen && (
         <Modal
           header={"About"}
