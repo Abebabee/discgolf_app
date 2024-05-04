@@ -56,54 +56,61 @@ const ResultTable = ({ discs, selectedDisc }: ResultTableProps) => {
   }, [selectedDiscObj]);
 
   return (
-    <table className="table-fixed rounded-lg border-2 border-border">
-      <thead className="border-b-2 border-border">
-        <tr className="divide-x divide-border">
-          <th scope="col" className="px-6 py-4">
-            Mold
-          </th>
-          <th scope="col" className="px-6 py-4">
-            Type
-          </th>
-          <th scope="col" className="px-6 py-4">
-            Speed
-          </th>
-          <th scope="col" className="px-6 py-4">
-            Glide
-          </th>
-          <th scope="col" className="px-6 py-4">
-            Turn
-          </th>
-          <th scope="col" className="px-6 py-4">
-            Fade
-          </th>
-        </tr>
-      </thead>
-      <tbody className="divide-y divide-border text-left">
-        {recommendedDiscs.slice(0, 5).map((recommendedDisc, index) => (
-          <tr key={index} className="divide-x divide-border">
-            <td className="whitespace-nowrap px-6 py-4">
-              {recommendedDisc.disc.MOLD}
-            </td>
-            <td className="whitespace-nowrap px-6 py-4">
-              {recommendedDisc.disc.DISCTYPE}
-            </td>
-            <td className="whitespace-nowrap px-6 py-4">
-              {recommendedDisc.disc.SPEED}
-            </td>
-            <td className="whitespace-nowrap px-6 py-4">
-              {recommendedDisc.disc.GLIDE}
-            </td>
-            <td className="whitespace-nowrap px-6 py-4">
-              {recommendedDisc.disc.TURN}
-            </td>
-            <td className="whitespace-nowrap px-6 py-4">
-              {recommendedDisc.disc.FADE}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <>
+      {recommendedDiscs.length > 0 && (
+        <div className="flex flex-col items-center">
+          <p className="p-4">These discs might be up your alley!</p>
+          <table className="table-fixed rounded-lg border-2 border-border">
+            <thead className="border-b-2 border-border">
+              <tr className="divide-x divide-border">
+                <th scope="col" className="px-6 py-4">
+                  Mold
+                </th>
+                <th scope="col" className="px-6 py-4">
+                  Type
+                </th>
+                <th scope="col" className="px-6 py-4">
+                  Speed
+                </th>
+                <th scope="col" className="px-6 py-4">
+                  Glide
+                </th>
+                <th scope="col" className="px-6 py-4">
+                  Turn
+                </th>
+                <th scope="col" className="px-6 py-4">
+                  Fade
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border text-left">
+              {recommendedDiscs.slice(0, 5).map((recommendedDisc, index) => (
+                <tr key={index} className="divide-x divide-border">
+                  <td className="whitespace-nowrap px-6 py-4">
+                    {recommendedDisc.disc.MOLD}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    {recommendedDisc.disc.DISCTYPE}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    {recommendedDisc.disc.SPEED}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    {recommendedDisc.disc.GLIDE}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    {recommendedDisc.disc.TURN}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    {recommendedDisc.disc.FADE}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </>
   );
 };
 

@@ -72,7 +72,6 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col items-center text-foreground">
-          <p className="p-4">These discs might be up your alley!</p>
           <ResultTable discs={discData} selectedDisc={selectedDisc} />
         </div>
       </div>
