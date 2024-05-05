@@ -4,6 +4,7 @@ import Button from "./components/Button";
 import InputField from "./components/InputField";
 import readDiscData from "@/app/hooks/readDiscData";
 import ResultTable from "./components/ResultTable";
+import { DiVim } from "react-icons/di";
 
 export default function Home() {
   const [discData, setDiscData] = useState<any[]>([]);
@@ -71,7 +72,10 @@ export default function Home() {
           </div>
         </div>
         <div className="flex flex-col text-foreground w-full lg:w-3/5">
-          <ResultTable discs={discData} selectedDisc={selectedDisc} />
+          {selectedDisc && (
+            <ResultTable discs={discData} selectedDisc={selectedDisc} />
+          )}
+          
         </div>
       </div>
     </main>
