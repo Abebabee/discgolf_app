@@ -93,7 +93,7 @@ const ResultTable = ({ discs, selectedDisc }: ResultTableProps) => {
                       key={index}
                       className="divide-x divide-border *:px-6 *:py-4"
                     >
-                      <td className="left-0">{recommendedDisc.disc.MOLD}</td>
+                      <td><a href={"https://otbdiscs.com/?s="+recommendedDisc.disc.MOLD+"&post_type=product"} target="_blank">{recommendedDisc.disc.MOLD}</a></td>
                       <td>{recommendedDisc.disc.DISCTYPE}</td>
                       <td>{recommendedDisc.disc.SPEED}</td>
                       <td>{recommendedDisc.disc.GLIDE}</td>
