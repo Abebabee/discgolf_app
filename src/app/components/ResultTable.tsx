@@ -62,46 +62,46 @@ const ResultTable = ({ discs, selectedDisc }: ResultTableProps) => {
           <p className="p-4">These discs might be up your alley!</p>
           <table className="table-fixed rounded-lg border-2 border-border">
             <thead className="border-b-2 border-border">
-              <tr className="divide-x divide-border">
-                <th scope="col" className="px-6 py-4">
+              <tr className="divide-x divide-border *:px-6 *:py:4">
+                <th scope="col">
                   Mold
                 </th>
-                <th scope="col" className="px-6 py-4">
+                <th scope="col">
                   Type
                 </th>
-                <th scope="col" className="px-6 py-4">
+                <th scope="col">
                   Speed
                 </th>
-                <th scope="col" className="px-6 py-4">
+                <th scope="col">
                   Glide
                 </th>
-                <th scope="col" className="px-6 py-4">
+                <th scope="col">
                   Turn
                 </th>
-                <th scope="col" className="px-6 py-4">
+                <th scope="col">
                   Fade
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border text-left">
               {recommendedDiscs.slice(0, 5).map((recommendedDisc, index) => (
-                <tr key={index} className="divide-x divide-border">
-                  <td className="whitespace-nowrap px-6 py-4">
+                <tr key={index} className="divide-x divide-border *:px-6 *:py-4 *:whitespace-nowrap">
+                  <td>
                     {recommendedDisc.disc.MOLD}
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4">
+                  <td>
                     {recommendedDisc.disc.DISCTYPE}
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4">
+                  <td>
                     {recommendedDisc.disc.SPEED}
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4">
+                  <td>
                     {recommendedDisc.disc.GLIDE}
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4">
+                  <td>
                     {recommendedDisc.disc.TURN}
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4">
+                  <td>
                     {recommendedDisc.disc.FADE}
                   </td>
                 </tr>
