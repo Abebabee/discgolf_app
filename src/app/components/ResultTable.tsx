@@ -75,8 +75,8 @@ const ResultTable = ({ discs, selectedDisc }: ResultTableProps) => {
         recommendedDiscs.length > 0 && (
           <div className="flex flex-col w-full items-center">
             <p className="p-4 text-center">These discs might be up your alley!</p>
-            <div className="overflow-x-auto flex  items-center w-full">
-              <table className="table-auto rounded-lg border-2 border-border border-collapse overflow-x-scroll w-full">
+            <div className="overflow-auto flex  w-full max-h-96 border-2 border-border rounded-lg scrollbar scrollbar-thumb-neutral-400 scrollbar-thumb-rounded scrollbar-w-2 scrollbar-h-2">
+              <table className="table-auto rounded-lg  border-collapse overflow-x-scroll overflow-y-scroll w-full ">
                 <thead className="border-b-2 border-border">
                   <tr className="divide-x divide-border *:px-6 *:py-4">
                     <th scope="col">Mold</th>
@@ -88,7 +88,7 @@ const ResultTable = ({ discs, selectedDisc }: ResultTableProps) => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border text-left">
-                  {recommendedDiscs.slice(0, 5).map((recommendedDisc, index) => (
+                  {recommendedDiscs.slice(0, 20).map((recommendedDisc, index) => (
                     <tr
                       key={index}
                       className="divide-x divide-border *:px-6 *:py-4"

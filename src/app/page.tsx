@@ -75,7 +75,6 @@ export default function Home() {
           {selectedDisc && (
             <ResultTable discs={discData} selectedDisc={selectedDisc} />
           )}
-          
         </div>
       </div>
     </main>
