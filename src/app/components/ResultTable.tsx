@@ -58,56 +58,37 @@ const ResultTable = ({ discs, selectedDisc }: ResultTableProps) => {
   return (
     <>
       {recommendedDiscs.length > 0 && (
-        <div className="flex flex-col items-center">
-          <p className="p-4">These discs might be up your alley!</p>
-          <table className="table-fixed rounded-lg border-2 border-border">
-            <thead className="border-b-2 border-border">
-              <tr className="divide-x divide-border *:px-6 *:py:4">
-                <th scope="col">
-                  Mold
-                </th>
-                <th scope="col">
-                  Type
-                </th>
-                <th scope="col">
-                  Speed
-                </th>
-                <th scope="col">
-                  Glide
-                </th>
-                <th scope="col">
-                  Turn
-                </th>
-                <th scope="col">
-                  Fade
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border text-left">
-              {recommendedDiscs.slice(0, 5).map((recommendedDisc, index) => (
-                <tr key={index} className="divide-x divide-border *:px-6 *:py-4 *:whitespace-nowrap">
-                  <td>
-                    {recommendedDisc.disc.MOLD}
-                  </td>
-                  <td>
-                    {recommendedDisc.disc.DISCTYPE}
-                  </td>
-                  <td>
-                    {recommendedDisc.disc.SPEED}
-                  </td>
-                  <td>
-                    {recommendedDisc.disc.GLIDE}
-                  </td>
-                  <td>
-                    {recommendedDisc.disc.TURN}
-                  </td>
-                  <td>
-                    {recommendedDisc.disc.FADE}
-                  </td>
+        <div className="flex flex-col w-full items-center">
+          <p className="p-4 text-center">These discs might be up your alley!</p>
+          <div className="overflow-x-auto flex  items-center w-full">
+            <table className="table-auto rounded-lg border-2 border-border border-collapse overflow-x-scroll w-full">
+              <thead className="border-b-2 border-border">
+                <tr className="divide-x divide-border *:px-6 *:py-4">
+                  <th scope="col">Mold</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Speed</th>
+                  <th scope="col">Glide</th>
+                  <th scope="col">Turn</th>
+                  <th scope="col">Fade</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-border text-left">
+                {recommendedDiscs.slice(0, 5).map((recommendedDisc, index) => (
+                  <tr
+                    key={index}
+                    className="divide-x divide-border *:px-6 *:py-4"
+                  >
+                    <td className="left-0">{recommendedDisc.disc.MOLD}</td>
+                    <td>{recommendedDisc.disc.DISCTYPE}</td>
+                    <td>{recommendedDisc.disc.SPEED}</td>
+                    <td>{recommendedDisc.disc.GLIDE}</td>
+                    <td>{recommendedDisc.disc.TURN}</td>
+                    <td>{recommendedDisc.disc.FADE}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </>

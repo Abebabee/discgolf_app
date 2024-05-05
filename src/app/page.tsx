@@ -41,12 +41,12 @@ export default function Home() {
 
   return (
     <main className="bg-background flex flex-row justify-center items-center h-screen">
-      <div className="bg-card flex flex-col justify-center items-center relative">
+      <div className="bg-card flex flex-col justify-center items-center relative w-full">
         <div className="flex flex-row justify-center items-center text-foreground">
           <p>I would like a disc similar to:</p>
         </div>
         <div className="flex flex-row justify-center items-center text-foreground">
-          <div className="relative">
+          <div className="relative flex">
           <div className="flex flex-row">
             <InputField
               placeholder={"e.g. Firebird"}
@@ -70,7 +70,7 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div className="flex flex-col items-center text-foreground">
+        <div className="flex flex-col text-foreground w-full lg:w-3/5">
           <ResultTable discs={discData} selectedDisc={selectedDisc} />
         </div>
       </div>
