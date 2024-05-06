@@ -39,6 +39,12 @@ export default function Home() {
     setSelectedDisc(inputValue);
     setInputValue("");
   }
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      setSelectedDisc(inputValue);
+      setInputValue("");
+    }
+  };
 
   return (
     <main className="bg-background flex flex-row justify-center items-center h-screen">
@@ -53,6 +59,7 @@ export default function Home() {
               placeholder={"e.g. Firebird"}
               onChange={handleInputChange}
               value={inputValue}
+              onKeyDown={handleKeyDown}
             />
             <Button name={"Search"} href={""} bg={"bg-primary"} onClick={handleButtonClick}/>
             </div>
