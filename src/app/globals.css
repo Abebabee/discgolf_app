@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --background: hsl(0, 0%, 100%);
@@ -26,9 +25,30 @@
     --input: hsl(20, 5.9%, 90%);
     --ring: hsl(24.6, 95%, 53.1%);
     --radius: 0.5rem;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--muted);
+    border-radius: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--muted-foreground);
+    border-radius: 5px;
+}
+ 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
-.dark {
+  .dark {
     --background: hsl(20, 14.3%, 4.1%);
     --foreground: hsl(60, 9.1%, 97.8%);
     --card: hsl(20, 14.3%, 4.1%);
@@ -48,11 +68,8 @@
     --border: hsl(12, 6.5%, 15.1%);
     --input: hsl(12, 6.5%, 15.1%);
     --ring: hsl(20.5, 90.2%, 48.2%);
+  }
 }
-
-}
-
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;

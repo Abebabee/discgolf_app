@@ -6,7 +6,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -31,15 +31,14 @@ const config: Config = {
         input: "var(--input)",
         ring: "var(--ring)",
         green: "var(--green)",
-        orange: "var(--orange)"
+        orange: "var(--orange)",
       },
       borderRadius: {
         DEFAULT: "var(--radius)",
       },
     },
   },
-  plugins: [require('tailwind-scrollbar')({
-    nocompatible: true
-  })],
+  plugins: [
+  ],
 };
 export default config;
