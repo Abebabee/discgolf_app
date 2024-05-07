@@ -4,7 +4,6 @@ import Button from "./components/Button";
 import InputField from "./components/InputField";
 import readDiscData from "@/app/hooks/readDiscData";
 import ResultTable from "./components/ResultTable";
-import { DiVim } from "react-icons/di";
 
 export default function Home() {
   const [discData, setDiscData] = useState<any[]>([]);
@@ -14,7 +13,7 @@ export default function Home() {
   const { fetchCsvData } = readDiscData();
 
   useEffect(() => {
-    fetchCsvData("/discdata.csv", setDiscData);
+    fetchCsvData("./discdata.csv", setDiscData);
   }, []);
 
   useEffect(() => {
