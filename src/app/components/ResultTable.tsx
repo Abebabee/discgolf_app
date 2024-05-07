@@ -75,8 +75,8 @@ const ResultTable = ({ discs, selectedDisc }: ResultTableProps) => {
         recommendedDiscs.length > 0 && (
           <div className="flex flex-col w-full items-center">
             <div>
-              <div className="flex flex-row border my-2 rounded-lg p-2 *:px-2 justify-between bg-muted">
-                <div>{selectedDiscObj.MOLD}</div>
+              <div className="flex flex-row border my-2 rounded-lg p-2 *:px-2 justify-between bg-muted border-border">
+                <div className="font-bold">{selectedDiscObj.MOLD}</div>
                 <div>{selectedDiscObj.SPEED}</div>
                 <div>{selectedDiscObj.GLIDE}</div>
                 <div>{selectedDiscObj.TURN}</div>
@@ -103,7 +103,7 @@ const ResultTable = ({ discs, selectedDisc }: ResultTableProps) => {
                       key={index}
                       className="divide-x divide-border *:px-6 *:py-4"
                     >
-                      <td><a href={"https://otbdiscs.com/?s="+recommendedDisc.disc.MOLD+"&post_type=product"} target="_blank">{recommendedDisc.disc.MOLD}</a></td>
+                      <td><a href={"https://otbdiscs.com/?s="+recommendedDisc.disc.MOLD+"&post_type=product"} target="_blank" className="underline">{recommendedDisc.disc.MOLD}</a></td>
                       <td>{recommendedDisc.disc.DISCTYPE}</td>
                       <td>{recommendedDisc.disc.SPEED}</td>
                       <td>{recommendedDisc.disc.GLIDE}</td>

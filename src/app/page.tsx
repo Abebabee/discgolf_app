@@ -17,6 +17,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    console.log("Hej i useEffect!")
     const discNames = discData
       .map((disc: any) => disc.MOLD)
       .filter((name: string | null) => name !== null)
